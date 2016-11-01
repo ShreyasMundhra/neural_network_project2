@@ -1,0 +1,10 @@
+mseError_epoch100: 809.1719
+mseError_epoch200: 464.4653
+mseError_epoch300: 355.7146
+mseError_epoch400: 309.3122
+mseError_epoch500: 285.7782
+mseError_epoch600: 274.7081
+mseError_epoch700: 261.4817
+mseError_epoch800: 260.7581
+mseError_epoch900: 255.855
+mseError_epoch1000: 243.2842
