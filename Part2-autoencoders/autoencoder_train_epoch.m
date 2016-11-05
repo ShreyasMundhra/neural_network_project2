@@ -3,7 +3,7 @@
 load 'dataTest.mat';
 load 'dataTrain.mat';
 
-file_path = './Results/';
+file_path = './Results/part1/';
 
 hiddenSize1 = 100;
 
@@ -18,12 +18,15 @@ for ep = 1:numel(epochs)
         'MaxEpochs', epochs(ep));
     
     f1 = figure();
-    weights_file_name = [file_path, 'weights/', 'autoenc1_weights', ...
+    weights_fn = [file_path, 'weights/', 'weights', ...
         params, '.jpg'];
     plotWeights(autoenc1);
-    saveas(f1, weights_file_name);
+    saveas(f1, weights_fn);
 
     reconstructed = predict(autoenc1, dataTest);
+    reconstructed_fn = [file_path, 'reconstructed/', ...
+            'reconstructed', params];
+    save(reconstructed_fn, 'reconstructed');
 
     mseError = 0;
     for i = 1:numel(dataTest)
@@ -35,26 +38,17 @@ for ep = 1:numel(epochs)
     
     disp(['mseError', params, ': ', num2str(mseError)]);
 
-    f2 = figure();
-    for i = 1:20
-        subplot(4,5,i);
-        imshow(dataTest{i});
-    end
-    dataset_file_name = [file_path, 'datatest/', ...
-            'autoenc1_datatest', params, '.jpg'];
-    saveas(f2, dataset_file_name);
-
     f3 = figure();
     for i = 1:20
         subplot(4,5,i);
-        imshow(reconstructed{i});
+        imshow(reconstructed{i}, [0 255]);
     end
     reconstructed_file_name = [file_path, 'reconstructed/', ...
             'autoenc1_reconstructed', params, '.jpg'];
     saveas(f3, reconstructed_file_name);
 end
 
-error_txt = [file_path, 'errors/', 'autoenc1_epoch', '.txt'];
+error_txt = [file_path, 'errors/', 'mse_errors_epochs', '.txt'];
 fid = fopen(error_txt, 'wt');
 for ii = 1:size(mse_errors,1)
     fprintf(fid,'%g\t',mse_errors(ii,:));

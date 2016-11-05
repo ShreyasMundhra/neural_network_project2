@@ -36,3 +36,19 @@ for i = 1:20
     imshow(reconstructed{i});
 end
 
+        % save('autoenc1_arch.png', autoenc1);
+        % fig = figure();
+        % savefig('autoenc1_fig.fig');
+        % 
+        % view(autoenc1)
+        % savefig(fig, 'autoenc1_arch.fig');
+        % 
+        % clf(fig), plotWeights(autoenc1);
+        % savefig(fig, 'autoenc1_weights.fig');
+
+        % net = network(autoenc1);
+        % [net, tr] = train(net);
+        % clf(fig), plotperform(tr);
+        % savefig(fig, 'autoenc_pp.fig');
+
+        % figure(), plotWeights(autoenc1);
