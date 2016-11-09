@@ -1,0 +1,17 @@
+mkdir plots
+cd plots
+mkdir batchsize
+mkdir learning_rate
+mkdir momentum_decay
+mkdir num_filters
+cd batchsize
+mkdir accuracy
+cd ..
+cd learning_rate
+mkdir accuracy
+cd ..
+cd momentum_decay
+mkdir accuracy
+cd ..
+cd num_filters
+mkdir accuracy
